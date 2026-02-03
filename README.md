@@ -36,15 +36,6 @@ O sistema utiliza **JWT**. Para testar os endpoints protegidos, faça login e us
 | **ADMIN** | `admin@vidaplena.com` | `admin123` |
 | **DOCTOR** | `joao.silva@vidaplena.com` | `medico123` |
 | **RECEP** | `ana.costa@vidaplena.com` | `recepcao123` |
-
----
-
-## 📚 Documentação Adicional
-Para detalhes técnicos aprofundados, consulte a pasta [**Outros/**](file:///c:/Users/artur/Downloads/VIDAPLENA/Outros/):
-- [**Detalhamento da Arquitetura**](file:///c:/Users/artur/Downloads/VIDAPLENA/Outros/DETALHAMENTO_ESTRUTURA.md): Explicação das camadas, princípios DRY e decisões de design.
-- [**Guia Docker**](file:///c:/Users/artur/Downloads/VIDAPLENA/Outros/DOCKER.md): Detalhes de infraestrutura e variáveis de ambiente.
-- [**Testes Manuais**](file:///c:/Users/artur/Downloads/VIDAPLENA/Outros/TESTES_MANUAIS.md): Exemplos de chamadas via terminal/PowerShell.
-
 ---
 
 ## 👥 Autor
