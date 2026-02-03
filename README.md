@@ -71,7 +71,7 @@ Para manter a raiz do projeto limpa, organizamos os arquivos da seguinte forma:
 
 ```bash
 # 1. Clone o repositório
-git clone <url-do-repositorio>
+git clone https://github.com/ArturHenriqueDeCarvalho/vidaplena.git
 cd VIDAPLENA
 
 # 2. Inicie os serviços (PostgreSQL + Aplicação)
@@ -659,15 +659,14 @@ docker exec -it vidaplena-postgres psql -U postgres -d vida_plena
 ## 📞 Suporte
 
 Para dúvidas ou problemas:
-- Abra uma issue no repositório
-- Email: contato@vidaplena.com
+- Abra uma issue no repositório GitHub
+- LinkedIn: [Artur Henrique](https://www.linkedin.com/in/artur-henrique-carvalho/)
 
 ---
 
 ## 👥 Autor
 
-**VIDA PLENA Development Team**
+**Artur Henrique**
 
 ---
 
-**Desenvolvido com ❤️ para a Clínica Vida Plena**

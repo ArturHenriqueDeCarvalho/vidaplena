@@ -1,10 +1,10 @@
 spring:
-  # Configuração do Banco de Dados PostgreSQL (Testes)
+  # H2 Database In-Memory para Testes
   datasource:
-    url: jdbc:postgresql://localhost:5432/vida_plena_test
-    username: postgres
-    password: 1234
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
 
   # Configuração JPA/Hibernate para Testes
   jpa:
@@ -14,7 +14,23 @@ spring:
     properties:
       hibernate:
         format_sql: false
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.H2Dialect
+
+  # Desabilitar Flyway em testes (Spring Boot >= 3.x)
+  flyway:
+    enabled: false
+
+  # Desabilitar Kafka em testes
+  kafka:
+    enabled: false
+    producer:
+      enabled: false
+    consumer:
+      enabled: false
+
+# Configuração customizada da aplicação para testes
+kafka:
+  enabled: false
 
 # JWT para testes (chave fixa)
 jwt:
