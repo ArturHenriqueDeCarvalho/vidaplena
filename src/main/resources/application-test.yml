@@ -1,0 +1,37 @@
+spring:
+  # Configuração do Banco de Dados PostgreSQL (Testes)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vida_plena_test
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  # Configuração JPA/Hibernate para Testes
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# JWT para testes (chave fixa)
+jwt:
+  secret: test-secret-key-for-unit-tests-minimum-256-bits-required-for-hs256-algorithm
+  expiration: 3600000 # 1 hora
+
+# Logging mínimo para testes
+logging:
+  level:
+    root: WARN
+    com.example.vidaplena: INFO
+    org.springframework: WARN
+    org.hibernate: WARN
+
+# Desabilitar Swagger em testes
+springdoc:
+  swagger-ui:
+    enabled: false
+  api-docs:
+    enabled: false

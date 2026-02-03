@@ -1,0 +1,73 @@
+spring:
+  # Configuração JPA para Produção
+  jpa:
+    hibernate:
+      ddl-auto: validate # Nunca alterar schema em produção
+    show-sql: false # Desabilitar logs SQL em produção
+    properties:
+      hibernate:
+        format_sql: false
+        generate_statistics: false
+
+  # Configuração Flyway para Produção
+  flyway:
+    enabled: true
+    baseline-on-migrate: false # Não fazer baseline em produção
+    validate-on-migrate: true
+    out-of-order: false
+
+  # Configuração Kafka para Produção
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
+    consumer:
+      enable-auto-commit: false # Controle manual de commits
+      max-poll-records: 100
+    producer:
+      acks: all # Garantir que todas as réplicas confirmem
+      retries: 3
+      compression-type: snappy
+
+# Configuração de Logging para Produção
+logging:
+  level:
+    root: WARN
+    com.example.vidaplena: INFO
+    org.springframework.web: WARN
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+  file:
+    name: /var/log/vidaplena/application.log
+    max-size: 10MB
+    max-history: 30
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Configuração do Servidor para Produção
+server:
+  error:
+    include-message: never # Não expor mensagens de erro
+    include-binding-errors: never
+    include-stacktrace: never
+    include-exception: false
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+
+# SpringDoc/Swagger - DESABILITADO EM PRODUÇÃO
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+# Configuração de Segurança Adicional
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never

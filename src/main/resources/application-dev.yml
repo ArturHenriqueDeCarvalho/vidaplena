@@ -1,0 +1,36 @@
+spring:
+  # Configuração do Banco de Dados PostgreSQL (Desenvolvimento)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vida_plena
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  # Configuração JPA/Hibernate para PostgreSQL
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# Desabilitar Kafka no perfil dev
+kafka:
+  enabled: false
+
+# Logging mais detalhado para desenvolvimento
+logging:
+  level:
+    root: INFO
+    com.example.vidaplena: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# Swagger habilitado
+springdoc:
+  swagger-ui:
+    enabled: true
